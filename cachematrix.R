@@ -4,15 +4,18 @@
 
 ## First is a function used for caching the matrix
 
-makecache <- function(x = matrix()) {
+makecache <- function(m = matrix()) {
   inverse <- NULL
   set <- function(x) {
     m <- x;
     inverse <- NULL;
     }
-  get <- function() return(m);
-  setinv <- function(inv) inverse <- inv;
-  getinv <- function() return(inverse);
+  get <- function() 
+  return(m);
+  setinv <- function(inv) 
+  inverse <- inv;
+  getinv <- function() 
+  return(inverse);
   return(list(set = set, get = get, setinv = setinv, getinv = getinv))
 }
 
@@ -22,7 +25,7 @@ makecache <- function(x = matrix()) {
 ## There is also a message in case the inverted matrix is availabe in cache
 ## and, if available in cache, the inverted matrix is displayed
 
-getmatrix <- function(x, ...) {
+getmatrix <- function(m, ...) {
   inverse <- m$getinv()
   if(!is.null(inverse)) {
     message("Obtaining cache data..")
