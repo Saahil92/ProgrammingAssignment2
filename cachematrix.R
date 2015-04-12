@@ -2,9 +2,9 @@
 ## and find inverse of a matrix
 
 
-## First is a function used for caching the matrix
+## This function creates a special "matrix" object that can cache its inverse.
 
-makecache <- function(m = matrix()) {
+makeCacheMatrix <- function(m = matrix()) {
   inverse <- NULL
   set <- function(x) {
     m <- x;
@@ -20,12 +20,11 @@ makecache <- function(m = matrix()) {
 }
 
 
-## The second function is used to find the inverse of the matrix
-## In order to do this, we shall use matrix calculated by the above function
-## There is also a message in case the inverted matrix is availabe in cache
-## and, if available in cache, the inverted matrix is displayed
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
+## If the inverse has already been calculated (and the matrix has not changed)
+## then the cachesolve retrieves the inverse from the cache.
 
-getmatrix <- function(m, ...) {
+cacheSolve <- function(m, ...) {
   inverse <- m$getinv()
   if(!is.null(inverse)) {
     message("Obtaining cache data..")
