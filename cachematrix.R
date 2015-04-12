@@ -34,5 +34,5 @@ getmatrix <- function(m, ...) {
   data <- m$get()
   inverse <- solve(data, ...)
   m$setinv(inverse)
-  return(inverse)  ## Return a matrix that is the inverse of 'x'
+  return(inverse)  ## Return a matrix that is the inverse of 'm'
 }
